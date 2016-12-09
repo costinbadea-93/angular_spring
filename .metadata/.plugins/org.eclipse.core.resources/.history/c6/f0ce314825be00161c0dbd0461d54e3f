@@ -1,0 +1,5 @@
+package com.example.ws.rest;
+
+public class ExclusionEndpoint {
+
+}

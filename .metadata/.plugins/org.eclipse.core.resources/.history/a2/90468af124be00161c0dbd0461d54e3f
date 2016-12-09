@@ -1,0 +1,11 @@
+package com.example.service;
+
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+@Transactional
+@Service("exclusionService")
+public class ExclusionService {
+
+}
