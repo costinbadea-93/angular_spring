@@ -8,3 +8,12 @@
 1481619490105	Delete elements
 1481622837766	Delete element
 1481700907017	Delete element
+1481704781002	Delete element
+1481704808187	Rename resource 'view1'
+1481704829051	Rename resource 'view1_test.js'
+1481704848468	Rename resource 'view1.html'
+1481704860560	Rename resource 'view1.js'
+1481722209055	Delete element
+1481722412347	Rename resource 'modalCreateEclusion.js'
+1481723438225	Delete element
+1481725753206	Extract local variable 'exclusions'

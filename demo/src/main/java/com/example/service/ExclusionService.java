@@ -18,4 +18,8 @@ public class ExclusionService {
 	public Exclusion createExclusion(Exclusion exclusion) {
 		return exclusionRepository.save(exclusion);	
 	}
+	
+	public Object retrieveAllExclusion(){
+		return exclusionRepository.findAll();	
+	}
 }

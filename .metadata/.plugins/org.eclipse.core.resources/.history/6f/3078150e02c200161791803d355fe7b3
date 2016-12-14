@@ -1,0 +1,7 @@
+myApp.directive('someDirective', function () {
+  return {
+    restrict: 'A',
+    controller: 'createExclusion',
+    template: '/includes/modalCreateExclusion.html'
+  };
+});

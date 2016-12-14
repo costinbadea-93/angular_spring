@@ -1,0 +1,10 @@
+'use strict';
+
+angular.module('myApp.exclusion', ['ngRoute'])
+.directive('createExclusion', function () {
+  return {
+    restrict: 'E',
+    controller: 'createExclusion',
+    template: '/includes/modalCreateExclusion.html'
+  };
+});
