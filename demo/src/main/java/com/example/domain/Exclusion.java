@@ -14,6 +14,7 @@ public class Exclusion extends AbstractPersistable<Long> {
 	
 	private String firstName;
 	private String lastName;
+	
 	public String getFirstName() {
 		return firstName;
 	}

@@ -1,10 +1,14 @@
 package com.example.ws.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.domain.Exclusion;
+import com.example.repository.ExclusionRepository;
 import com.example.service.ExclusionService;
 
 @RestController
@@ -12,10 +16,18 @@ import com.example.service.ExclusionService;
 public class ExclusionEndpoint {
 
 	@Autowired
+	private ExclusionRepository exclusionRepository;
+	
+	@Autowired
 	private ExclusionService exclusionService;
 	
-	@RequestMapping
-	public void createExclusion(Exclusion exclusion) {
+	@RequestMapping(method = RequestMethod.POST)
+	public void createExclusion(@RequestBody Exclusion exclusion) {
 		exclusionService.createExclusion(exclusion);
+	}
+	
+	@RequestMapping(value = "{exclusionId}", method = RequestMethod.GET)
+	public Exclusion retrieveExclusion(@PathVariable Long exclusionId){
+		return exclusionRepository.findOne(exclusionId);
 	}
 }
