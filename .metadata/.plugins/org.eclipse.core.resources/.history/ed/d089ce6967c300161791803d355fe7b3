@@ -1,0 +1,9 @@
+#security configuration
+security.user.name=username
+security.user.password=password
+
+#datasource configuration
+spring.datasource.url=jdbc:mysql://localhost/sea
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver

@@ -1,0 +1,13 @@
+package com.example;
+
+import org.springframework.data.domain.AuditorAware;
+
+public class UsernameAuditor implements AuditorAware<String> {
+
+	@Override
+	public String getCurrentAuditor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

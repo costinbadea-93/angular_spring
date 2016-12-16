@@ -1,0 +1,26 @@
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<td>firstName</td>
+				<td>lastName</td>
+				<td>deleteExclusion</td>
+				<td>updateExclusion</td>
+			</tr>
+		<thead>
+		<tbody ng-repeat="exclusion in exclusionsObj">
+			<tr>
+				<td>{{exclusion.firstName}}</td>
+				<td>{{exclusion.lastName}}</td>
+				<td><button class="btn btn-danger" ng-click="deleteUser(exclusion.id)">Delete exclusion</button></td>
+				<td ><button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Update exclusion</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="row">
+		<create-exclusion></create-exclusion>
+		<button class="btn btn-default" ng-click="getUsers()">Get
+			exclusions</button>
+	</div>
+</div>
+

@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Create exclusion</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -11,11 +11,12 @@
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
+          <input type="text" placeholder="firstName" ng-model="firstName"/>
+          <input type="text" placeholder="lastName" ng-model="lastName"/>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default">Create Exclusion</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"ng-click="postUser(firstName,lastName)">Create Exclusion</button>
         </div>
       </div>
       

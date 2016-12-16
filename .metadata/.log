@@ -2799,3 +2799,193 @@ org.eclipse.wst.xml.core.internal.document.StructuredDocumentRegionManagementExc
 
 !ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-14 15:47:26.905
 !MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-14 17:26:11.239
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.ui 4 0 2016-12-14 17:29:25.822
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Failed to execute runnable (java.lang.IllegalStateException: Connection is closed)
+	at org.eclipse.swt.SWT.error(SWT.java:4533)
+	at org.eclipse.swt.SWT.error(SWT.java:4448)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4203)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3819)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$4.run(PartRenderingEngine.java:1121)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1022)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:150)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:687)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:604)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:138)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:673)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:610)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1519)
+Caused by: java.lang.IllegalStateException: Connection is closed
+	at org.eclipse.wst.jsdt.chromium.internal.BaseCommandProcessor.send(BaseCommandProcessor.java:67)
+	at org.eclipse.wst.jsdt.chromium.internal.v8native.V8CommandProcessor.sendV8CommandAsync(V8CommandProcessor.java:84)
+	at org.eclipse.wst.jsdt.chromium.internal.v8native.DebugSession.sendMessageAsync(DebugSession.java:101)
+	at org.eclipse.wst.jsdt.chromium.internal.v8native.ScriptImpl.setSourceOnRemote(ScriptImpl.java:40)
+	at org.eclipse.wst.jsdt.chromium.debug.core.model.PushChangesPlan.execute(PushChangesPlan.java:95)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.actions.PushChangesAction.execute(PushChangesAction.java:65)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.actions.PushChangesAction.execute(PushChangesAction.java:35)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.actions.V8ScriptAction$2.run(V8ScriptAction.java:43)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.listeners.JavaScriptChangeListener$1$1.run(JavaScriptChangeListener.java:49)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:35)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:182)
+	... 23 more
+Caused by: java.lang.IllegalStateException
+	at org.eclipse.wst.jsdt.chromium.internal.CloseableMap.put(CloseableMap.java:74)
+	at org.eclipse.wst.jsdt.chromium.internal.BaseCommandProcessor.send(BaseCommandProcessor.java:64)
+	... 33 more
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-14 17:32:37.532
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-14 17:32:37.538
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-12-15 10:51:31.976
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-15 10:56:52.090
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-15 11:29:01.543
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-15 11:29:16.721
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 0 0 2016-12-15 11:51:50.524
+!MESSAGE Script has been successfully updated on remote: [{"break_points_update":[{"new_positions":{"line":0,"column":10,"position":10},"old_positions":{"line":0,"column":10,"position":10},"id":1,"type":"position_changed"}]},{"function_info_not_found":true,"function_patched":""},{"position_patched":[{"info_not_found":true,"name":""},{"name":""},{"name":""},{"name":""},{"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""}]}]
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 0 0 2016-12-15 11:51:53.887
+!MESSAGE Script has been successfully updated on remote: [{"break_points_update":[{"new_positions":{"line":0,"column":10,"position":10},"old_positions":{"line":0,"column":10,"position":10},"id":1,"type":"position_changed"}]},{"function_info_not_found":true,"function_patched":""},{"position_patched":[{"info_not_found":true,"name":""},{"name":""},{"name":""},{"name":""},{"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""},{"info_not_found":true,"name":""}]}]
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-15 11:52:02.737
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-12-15 17:01:43.276
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-12-15 17:01:45.852
+!MESSAGE Connection to http://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.js 4 0 2016-12-15 18:02:14.237
+!MESSAGE Unable to run Chrome / Chromium. Verify you have a configured Chrome / Chromium runtime environment and try again.
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.js 4 0 2016-12-15 18:09:38.012
+!MESSAGE Unable to run Chrome / Chromium. Verify you have a configured Chrome / Chromium runtime environment and try again.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2016-12-16 09:20:02.807
+!MESSAGE Connection to http://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:259)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.AbstractPoolEntry.open(AbstractPoolEntry.java:144)
+	at org.apache.http.impl.conn.AbstractPooledConnAdapter.open(AbstractPooledConnAdapter.java:131)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:611)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:446)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:863)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 1 0 2016-12-16 09:39:02.165
+!MESSAGE SDK:org.eclipse.wst.jsdt.chromium.internal.transport.SocketConnection: Shutdown requested
+
+!ENTRY org.eclipse.jface.text 2 0 2016-12-16 09:54:12.467
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2016-12-16 09:54:12.470
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

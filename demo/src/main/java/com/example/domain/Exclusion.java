@@ -2,19 +2,14 @@ package com.example.domain;
 
 import javax.persistence.Entity;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
 @Entity
-public class Exclusion extends AbstractPersistable<Long> {
+public class Exclusion extends BaseEntity {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private String firstName;
 	private String lastName;
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -26,7 +21,5 @@ public class Exclusion extends AbstractPersistable<Long> {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-	
-	
+	}	
 }

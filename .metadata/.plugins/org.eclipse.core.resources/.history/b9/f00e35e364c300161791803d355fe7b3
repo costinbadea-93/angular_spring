@@ -1,0 +1,7 @@
+package com.example.domain;
+
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+public class BaseEntiry extends AbstractPersistable<Long> {
+
+}
