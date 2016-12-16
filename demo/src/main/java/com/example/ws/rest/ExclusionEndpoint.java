@@ -1,15 +1,14 @@
 package com.example.ws.rest;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
+import com.example.domain.Breach;
+import com.example.repository.BreachRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.domain.Exclusion;
 import com.example.repository.ExclusionRepository;
@@ -25,10 +24,17 @@ public class ExclusionEndpoint {
 	
 	@Autowired
 	private ExclusionService exclusionService;
+
+	@Autowired
+	private BreachRepository breachRepository;
 	
 	//post exclusion
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<?> createExclusion(@RequestBody Exclusion exclusion) {
+	public ResponseEntity<?> createExclusion(@RequestBody Exclusion exclusion, @RequestParam Long breachId) {
+		Breach breach = breachRepository.findOne(breachId);
+		List<Breach> breaches = new ArrayList<>();
+		breaches.add(breach);
+		exclusion.setBreaches(breaches);
 		Exclusion excl = exclusionService.createExclusion(exclusion);
 		
 		URI location = URI.create("/rest/exclusion/" + excl.getId());
