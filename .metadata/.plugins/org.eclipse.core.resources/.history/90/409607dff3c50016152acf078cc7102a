@@ -32,19 +32,20 @@ angular.module('myApp.exclusion', ['ngRoute'])
              }
          }
 	 	 
-		$scope.postBreach = function(breachType){
-		 var dataBreach = {
-				 type:breachType
+		$scope.postBreach = function(firstName,lastName){
+		 var JSON = {
+				 firstName:firstName,
+				 lastName:lastName
 		 }
-		console.log(dataBreach);
-		 $http.post(breachPath, dataBreach, config)
+		console.log(JSON);
+		 $http.post(dataPath, JSON, config)
 		         .success(function (data, status, headers, config) {
 		        	 console.log(data);
 
 		         })
 		         .error(function (data, status, header, config) {
          });
-		 $scope.getBreaches();
+		 $scope.getUsers();
 	}
 	 /*
 	  * 

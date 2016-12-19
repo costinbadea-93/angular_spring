@@ -44,7 +44,7 @@ angular.module('myApp.exclusion', ['ngRoute'])
 		         })
 		         .error(function (data, status, header, config) {
          });
-		 $scope.getBreaches();
+		 $scope.getUsers();
 	}
 	 /*
 	  * 

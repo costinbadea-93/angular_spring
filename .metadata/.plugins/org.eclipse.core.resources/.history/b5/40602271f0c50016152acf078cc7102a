@@ -20,19 +20,19 @@ public class BaseEntity extends AbstractPersistable<Long> {
 	private static final long serialVersionUID = 1L;
 
 	@CreatedBy
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private String createdBy;
 	
 	@CreatedDate
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private Date createdDate;
 	
 	@LastModifiedBy
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private String lastModifiedBy;
 	
 	@LastModifiedDate
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private Date lastModifiedDate;
 
 	public String getCreatedBy() {

@@ -13,10 +13,7 @@
 			<tr>
 				<td>{{exclusion.firstName}}</td>
 				<td>{{exclusion.lastName}}</td>
-				<td><ul ng-repeat="breach in exclusionsObj.breaches">
-						<li>{{breach.type}}</li>
-					</ul>
-				</td>
+				<td></td>
 				<td><button class="btn btn-danger" ng-click="deleteUser(exclusion.id)">Delete exclusion</button></td>
 				<td><button ng-click="passId(exclusion.id)" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Update exclusion</button></td>
 			</tr>

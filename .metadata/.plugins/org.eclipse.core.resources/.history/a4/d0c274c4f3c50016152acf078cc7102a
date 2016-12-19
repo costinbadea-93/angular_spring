@@ -31,21 +31,7 @@ angular.module('myApp.exclusion', ['ngRoute'])
                  'Content-Type': 'application/json'
              }
          }
-	 	 
-		$scope.postBreach = function(breachType){
-		 var dataBreach = {
-				 type:breachType
-		 }
-		console.log(dataBreach);
-		 $http.post(breachPath, dataBreach, config)
-		         .success(function (data, status, headers, config) {
-		        	 console.log(data);
-
-		         })
-		         .error(function (data, status, header, config) {
-         });
-		 $scope.getBreaches();
-	}
+	 
 	 /*
 	  * 
 	  * Exclusions
