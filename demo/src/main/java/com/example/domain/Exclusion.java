@@ -1,8 +1,9 @@
 package com.example.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Exclusion extends BaseEntity {
@@ -12,8 +13,8 @@ public class Exclusion extends BaseEntity {
 	private String firstName;
 	private String lastName;
 
-	@OneToMany
-	private List<Breach> breaches;
+	@ManyToOne
+	private Breach breaches;
 
 	public String getFirstName() {
 		return firstName;
@@ -28,11 +29,11 @@ public class Exclusion extends BaseEntity {
 		this.lastName = lastName;
 	}
 
-	public List<Breach> getBreaches() {
+	public Breach getBreaches() {
 		return breaches;
 	}
 
-	public void setBreaches(List<Breach> breaches) {
+	public void setBreaches(Breach breaches) {
 		this.breaches = breaches;
 	}
 }

@@ -30,16 +30,16 @@ public class ExclusionEndpoint {
 	
 	//post exclusion
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<?> createExclusion(@RequestBody Exclusion exclusion, @RequestParam Long breachId) {
-		Breach breach = breachRepository.findOne(breachId);
-		List<Breach> breaches = new ArrayList<>();
-		breaches.add(breach);
-		exclusion.setBreaches(breaches);
-		Exclusion excl = exclusionService.createExclusion(exclusion);
+	public ResponseEntity<?> createExclusion(@RequestBody Exclusion exclusion, @RequestParam Long breachId ) {
+		Breach createBreach = breachRepository.findOne(breachId);
+		exclusion.setBreaches(createBreach);
+		Exclusion createExclusion = exclusionService.createExclusion(exclusion);
 		
-		URI location = URI.create("/rest/exclusion/" + excl.getId());
-		return ResponseEntity.created(location).body(excl.getId());
+		
+		URI location = URI.create("/rest/exclusion/" + createExclusion.getId());
+		return ResponseEntity.created(location).body(createExclusion.getId());
 	}
+	 
 	
 	//get exclusion
 	@RequestMapping(value = "{exclusionId}", method = RequestMethod.GET)

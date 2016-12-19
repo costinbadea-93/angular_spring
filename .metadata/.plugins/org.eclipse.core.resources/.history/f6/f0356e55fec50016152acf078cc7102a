@@ -1,0 +1,72 @@
+package com.example.ws.rest;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.example.domain.Breach;
+import com.example.repository.BreachRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.domain.Exclusion;
+import com.example.repository.ExclusionRepository;
+import com.example.service.ExclusionService;
+
+
+@RestController
+@RequestMapping("/rest/exclusion")
+public class ExclusionEndpoint {
+
+	@Autowired
+	private ExclusionRepository exclusionRepository;
+	
+	@Autowired
+	private ExclusionService exclusionService;
+
+	@Autowired
+	private BreachRepository breachRepository;
+	
+	//post exclusion
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<?> createExclusion(@RequestBody Exclusion exclusion) {
+		Exclusion createExclusion = exclusionService.createExclusion(exclusion);
+		
+		URI location = URI.create("/rest/exclusion/" + createExclusion.getId());
+		return ResponseEntity.created(location).body(createExclusion.getId());
+	}
+	
+	//get exclusion
+	@RequestMapping(value = "{exclusionId}", method = RequestMethod.GET)
+	public Exclusion retrieveExclusion(@PathVariable Long exclusionId){
+		Exclusion exclusion = exclusionRepository.findOne(exclusionId);
+		return exclusion;
+	}
+	
+	//delete exclusion
+	@RequestMapping(value = "{exclusionId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteExclusion(@PathVariable Long exclusionId){
+		Exclusion deletedExclusion =  exclusionRepository.findOne(exclusionId);	
+		exclusionRepository.delete(deletedExclusion);
+		
+		return ResponseEntity.noContent().build();
+	}
+	//get all exclusions
+	@RequestMapping(method = RequestMethod.GET)
+	public List<Exclusion> retrieveAllExclusions(){
+		return exclusionRepository.findAll();
+	}
+	
+	//update exclusion
+	@RequestMapping(value = "{exclusionId}", method = RequestMethod.PUT)
+	public ResponseEntity<?> updateExclusion(@PathVariable Long exclusionId, @RequestBody Exclusion exclusion){
+		Exclusion existingExclusion = exclusionRepository.findOne(exclusionId);
+		existingExclusion.setFirstName(exclusion.getFirstName());
+		existingExclusion.setLastName(exclusion.getLastName());
+		
+		exclusionService.createExclusion(existingExclusion);
+		URI location = URI.create("/rest/exclusion/" + existingExclusion.getId());
+		return ResponseEntity.created(location).build();
+	}
+}

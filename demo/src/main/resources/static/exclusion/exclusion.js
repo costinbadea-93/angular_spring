@@ -32,6 +32,7 @@ angular.module('myApp.exclusion', ['ngRoute'])
              }
          }
 	 	 
+	  //Create a Breach
 		$scope.postBreach = function(breachType){
 		 var dataBreach = {
 				 type:breachType
@@ -46,6 +47,15 @@ angular.module('myApp.exclusion', ['ngRoute'])
          });
 		 $scope.getBreaches();
 	}
+	 
+	 //Get created Breaches
+	 $scope.getBreaches = function(){
+		 $http.get(breachPath).then(function (response) {
+				$scope.breachesObj = response.data;
+				console.log($scope.breachesObj);
+	         //return response;
+	     });
+	 }
 	 /*
 	  * 
 	  * Exclusions

@@ -1,8 +1,9 @@
 package com.example.domain;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 /**
  * Created by gatomulesei on 12/14/2016.
@@ -14,8 +15,19 @@ public class Breach extends BaseEntity {
     private static final long serialVersionUID = 1L;
 
     private Type type;
+    
+	@OneToMany
+	private List<Exclusion>exclusion;
 
-    public Type getType() {
+	public List<Exclusion> getExclusion() {
+		return exclusion;
+	}
+
+	public void setExclusion(List<Exclusion> exclusion) {
+		this.exclusion = exclusion;
+	}
+
+	public Type getType() {
         return type;
     }
 

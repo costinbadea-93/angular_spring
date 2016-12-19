@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,11 +34,17 @@ public class BreachEndpoint {
     ExclusionRepository exclusionRepository;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> createBreach(@RequestBody Breach breach){
-        Breach createdBreach = breachService.createBreach(breach);
-        URI location = URI.create("/rest/breaches" + createdBreach.getId());
-        return ResponseEntity.created(location).body(createdBreach.getId());
-    }
+    public ResponseEntity<?> createBreach(@RequestBody Breach breach, @RequestParam Long exclusionId){
+    	Exclusion exclusion = exclusionRepository.findOne(exclusionId);
+        List<Exclusion> createdExclusions = new ArrayList<>();
+        createdExclusions.add(exclusion);
+        breach.setExclusion(createdExclusions);
+        Breach br = breachService.createBreach(breach);
+        
+        
+        URI location = URI.create("/rest/breaches" + br.getId());
+        return ResponseEntity.created(location).body(br.getId());
+    } 
     
     @RequestMapping(method = RequestMethod.GET)
 	public List<Breach> retrieveAllBreaches(){
@@ -49,7 +56,6 @@ public class BreachEndpoint {
     	Breach breach = breachRepository.findOne(breachId);
     	return breach;
     }
-    
     
     
 }
