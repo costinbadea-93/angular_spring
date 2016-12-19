@@ -1,8 +1,0 @@
-myapp.directive('someDirective', function () {
-  return {
-    restrict: 'A',
-    controller: 'SomeController',
-    controllerAs: 'ctrl',
-    template: '{{ctrl.foo}}'
-  };
-});

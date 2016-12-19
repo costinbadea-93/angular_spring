@@ -1,9 +1,0 @@
-package com.example.domain;
-
-import org.springframework.data.jpa.domain.AbstractAuditable;
-
-public class BaseEntity extends AbstractAuditable<String, Long> {
-
-	private static final long serialVersionUID = 1L;
-
-}
