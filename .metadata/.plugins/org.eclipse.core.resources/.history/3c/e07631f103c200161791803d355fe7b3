@@ -1,9 +1,0 @@
-'use strict';
-
-angular.module('myApp.exclusion')
-.directive('createExclusion', function () {
-  return {
-    restrict: 'E',
-    controller: 'createExclusion'
-   };
-});

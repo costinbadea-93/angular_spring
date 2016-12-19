@@ -1,0 +1,41 @@
+package com.example.ws.rest;
+
+import com.example.domain.Breach;
+import com.example.repository.BreachRepository;
+import com.example.repository.ExclusionRepository;
+import com.example.service.BreachService;
+import com.example.service.ExclusionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.net.URI;
+
+/**
+ * Created by gatomulesei on 12/14/2016.
+ */
+@RestController
+@RequestMapping("/rest/breaches")
+public class BreachEndpoint {
+
+    @Autowired
+    BreachRepository breachRepository;
+
+    @Autowired
+    BreachService breachService;
+
+    @Autowired
+    ExclusionService exclusionService;
+
+    @Autowired
+    ExclusionRepository exclusionRepository;
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> createBreach(@RequestBody Breach breach){
+        Breach createdBreach = breachService.createBreach(breach);
+        URI location = URI.create("/rest/breaches" + createdBreach.getId());
+        return ResponseEntity.created(location).body(createdBreach.getId());
+    }
+    
+    
+}

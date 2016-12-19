@@ -1,6 +1,7 @@
 package com.example.ws.rest;
 
 import com.example.domain.Breach;
+import com.example.domain.Exclusion;
 import com.example.repository.BreachRepository;
 import com.example.repository.ExclusionRepository;
 import com.example.service.BreachService;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 /**
  * Created by gatomulesei on 12/14/2016.
@@ -36,4 +38,18 @@ public class BreachEndpoint {
         URI location = URI.create("/rest/breaches" + createdBreach.getId());
         return ResponseEntity.created(location).body(createdBreach.getId());
     }
+    
+    @RequestMapping(method = RequestMethod.GET)
+	public List<Breach> retrieveAllBreaches(){
+		return breachRepository.findAll();
+	}
+    
+    @RequestMapping(value = "{breachId}", method = RequestMethod.GET)
+    public Breach retrieveBreach(@PathVariable Long breachId){
+    	Breach breach = breachRepository.findOne(breachId);
+    	return breach;
+    }
+    
+    
+    
 }
