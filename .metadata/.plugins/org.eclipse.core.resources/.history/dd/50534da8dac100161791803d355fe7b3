@@ -1,7 +1,0 @@
-
-<div class="container">
-	<button ng-click='postUser()'>Post a user</button>
-	<button ng-click="getUsers()">Get users</button>
-</div>
-
-

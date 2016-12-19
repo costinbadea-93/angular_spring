@@ -1,8 +1,0 @@
-package com.example.service;
-
-import javax.transaction.Transactional;
-
-@Transactional
-public class ExclusionService {
-
-}
