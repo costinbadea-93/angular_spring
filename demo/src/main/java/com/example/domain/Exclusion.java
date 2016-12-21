@@ -3,7 +3,7 @@ package com.example.domain;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Exclusion extends BaseEntity {
@@ -13,9 +13,15 @@ public class Exclusion extends BaseEntity {
 	private String firstName;
 	private String lastName;
 
-	@ManyToOne
-	private Breach breaches;
+	@OneToMany
+	private List<Breach> breaches;
 
+	public List<Breach> getBreaches() {
+		return breaches;
+	}
+	public void setBreaches(List<Breach> breaches) {
+		this.breaches = breaches;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -29,11 +35,5 @@ public class Exclusion extends BaseEntity {
 		this.lastName = lastName;
 	}
 
-	public Breach getBreaches() {
-		return breaches;
-	}
 
-	public void setBreaches(Breach breaches) {
-		this.breaches = breaches;
-	}
 }

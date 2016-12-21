@@ -1,9 +1,7 @@
 package com.example.domain;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 /**
  * Created by gatomulesei on 12/14/2016.
@@ -16,14 +14,14 @@ public class Breach extends BaseEntity {
 
     private Type type;
     
-	@OneToMany
-	private List<Exclusion>exclusion;
+	@ManyToOne
+	private Exclusion exclusion;
 
-	public List<Exclusion> getExclusion() {
+	public  Exclusion getExclusion() {
 		return exclusion;
 	}
 
-	public void setExclusion(List<Exclusion> exclusion) {
+	public void setExclusion(Exclusion exclusion) {
 		this.exclusion = exclusion;
 	}
 
